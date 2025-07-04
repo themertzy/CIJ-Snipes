@@ -1,0 +1,43 @@
+{
+  "name": "cij-snipes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themertzy/CIJ-Snipes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/themertzy/CIJ-Snipes/issues"
+  },
+  "homepage": "https://github.com/themertzy/CIJ-Snipes#readme",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "autoprefixer": "^10.4.21",
+    "clsx": "^2.1.1",
+    "postcss": "^8.5.6",
+    "rollup": "^4.44.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  }
+}
