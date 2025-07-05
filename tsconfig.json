@@ -8,8 +8,11 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": ["src"]
 }

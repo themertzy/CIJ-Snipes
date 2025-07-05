@@ -24,6 +24,7 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.4",
@@ -38,6 +39,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@radix-ui/react-tabs": "^1.1.12",
     "tslib": "^2.8.1"
   }
 }
