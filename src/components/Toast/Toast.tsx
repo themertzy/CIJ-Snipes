@@ -4,16 +4,9 @@ import React from 'react';
 import { Check, XCircle, AlertTriangle, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export type ToastType = 'success' | 'error' | 'warning' | 'info';
+import type { ToastProps, ToastType, ToastStyle } from './Toast.types';
 
-export interface ToastProps {
-  show: boolean;
-  type?: ToastType;
-  message?: string;
-  className?: string;
-}
-
-const toastStyles = {
+const toastStyles: Record<ToastType, ToastStyle> = {
   success: {
     bg: 'bg-green-100',
     text: 'text-green-800',
