@@ -1,4 +1,4 @@
-import { jsx } from 'react/jsx-runtime';
+import { jsx, jsxs } from 'react/jsx-runtime';
 import * as React from 'react';
 import React__default from 'react';
 import 'react-dom';
@@ -922,5 +922,10 @@ TabsTrigger.displayName = Trigger.displayName;
 const TabsContent = React.forwardRef(({ className, ...props }, ref) => (jsx(Content, { ref: ref, className: cn('mt-6 p-6 transition-all animate-fade-in', className), ...props })));
 TabsContent.displayName = Content.displayName;
 
-export { Button, EditableCell, Tabs, TabsContent, TabsList, TabsTrigger };
+const Input = ({ label, error, className = '', id, ...props }) => {
+    const inputId = id || props.name || `input-${Math.random().toString(36).substr(2, 9)}`;
+    return (jsxs("div", { className: "flex flex-col gap-1", children: [label && (jsx("label", { htmlFor: inputId, className: "text-sm font-medium text-slate-700", children: label })), jsx("input", { id: inputId, className: `border rounded-lg px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${error ? 'border-red-500' : 'border-slate-300'} ${className}`, ...props }), error && jsx("p", { className: "text-xs text-red-500 mt-1", children: error })] }));
+};
+
+export { Button, EditableCell, Input, Tabs, TabsContent, TabsList, TabsTrigger };
 //# sourceMappingURL=index.esm.js.map

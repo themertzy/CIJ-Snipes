@@ -1,0 +1,92 @@
+If you're building a reusable React component library (like your CIJ-Snipes), a good goal is to offer a well-rounded set of foundational components that can be used across many apps.
+
+Here are core UI components and utility components you should consider adding:
+✅ Core UI Components
+
+These are common, essential components used in most apps.
+
+    Input
+    A text input with label, placeholder, error display, and optional icons.
+
+    TextArea
+    Multi-line input with same styling/options as Input.
+
+    Select / Dropdown
+    Customizable select component with label and optional search.
+
+    Checkbox
+    With label and indeterminate state.
+
+    RadioGroup
+    For grouped radio button selections.
+
+    Toggle / Switch
+    For binary on/off settings.
+
+    Modal / Dialog
+    For overlays or confirmation windows.
+
+    Tooltip
+    Lightweight hint that shows on hover/focus.
+
+    Popover
+    Richer alternative to tooltip, often used for menus.
+
+    Toast / Notification
+    Temporary message system for alerts, successes, errors.
+
+    Badge / Pill
+    Small status indicators (e.g., "New", "Beta", "Error").
+
+    Avatar
+    Circular user profile image with fallback initials.
+
+    Card
+    Container with padding, elevation, and optional header/footer.
+
+    Spinner / Loader
+    Shows loading state.
+
+    Pagination
+    Navigation UI for paginated data.
+
+⚙️ Utility/Interaction Components
+
+    Table
+    Configurable table with sorting, filtering, pagination (possibly based on TanStack).
+
+    EditableRow (if you already have EditableCell)
+    For inline editing multiple fields at once.
+
+    Breadcrumbs
+    Navigation helper showing page hierarchy.
+
+    Stepper / ProgressSteps
+    For multi-step forms or workflows.
+
+    Accordion
+    Collapsible section panels.
+
+    Tabs (✅ you already have this)
+
+    Drawer
+    Slide-in panel from edge of screen (e.g., sidebar on mobile).
+
+    DatePicker / TimePicker
+    Input for picking dates/times (use libraries like react-day-picker or react-datepicker internally).
+
+🌈 Styling & Theming Support
+
+    ThemeProvider or config to allow light/dark mode and primary color overrides.
+
+📦 Bonus (If you want to go further)
+
+    DataGrid with editable rows, virtual scrolling
+
+    FormWrapper / FormField abstraction to simplify validation with react-hook-form
+
+    Rich Text Editor (using something like TipTap or Slate under the hood)
+
+    Command Palette (like cmd + K search modal)
+
+    Skeleton components for loading placeholders

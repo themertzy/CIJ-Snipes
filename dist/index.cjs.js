@@ -942,8 +942,14 @@ TabsTrigger.displayName = Trigger.displayName;
 const TabsContent = React__namespace.forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx(Content, { ref: ref, className: cn('mt-6 p-6 transition-all animate-fade-in', className), ...props })));
 TabsContent.displayName = Content.displayName;
 
+const Input = ({ label, error, className = '', id, ...props }) => {
+    const inputId = id || props.name || `input-${Math.random().toString(36).substr(2, 9)}`;
+    return (jsxRuntime.jsxs("div", { className: "flex flex-col gap-1", children: [label && (jsxRuntime.jsx("label", { htmlFor: inputId, className: "text-sm font-medium text-slate-700", children: label })), jsxRuntime.jsx("input", { id: inputId, className: `border rounded-lg px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${error ? 'border-red-500' : 'border-slate-300'} ${className}`, ...props }), error && jsxRuntime.jsx("p", { className: "text-xs text-red-500 mt-1", children: error })] }));
+};
+
 exports.Button = Button;
 exports.EditableCell = EditableCell;
+exports.Input = Input;
 exports.Tabs = Tabs;
 exports.TabsContent = TabsContent;
 exports.TabsList = TabsList;
