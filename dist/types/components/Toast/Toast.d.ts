@@ -1,9 +1,3 @@
 import React from 'react';
-export type ToastType = 'success' | 'error' | 'warning' | 'info';
-export interface ToastProps {
-    show: boolean;
-    type?: ToastType;
-    message?: string;
-    className?: string;
-}
+import type { ToastProps } from './Toast.types';
 export declare const Toast: React.FC<ToastProps>;
