@@ -11439,6 +11439,24 @@ const Modal = ({ isOpen, onClose, title, children, footer, className, }) => {
     return (jsxRuntime.jsxs("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50", children: [jsxRuntime.jsxs("div", { className: clsx("bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative", className), onClick: (e) => e.stopPropagation(), children: [title && jsxRuntime.jsx("h2", { className: "text-lg font-semibold mb-4", children: title }), jsxRuntime.jsx("div", { className: "mb-4", children: children }), footer && jsxRuntime.jsx("div", { className: "mt-4", children: footer }), jsxRuntime.jsx("button", { onClick: onClose, className: "absolute top-3 right-3 text-gray-500 hover:text-black text-lg", "aria-label": "Close modal", children: "\u00D7" })] }), jsxRuntime.jsx("div", { className: "absolute inset-0", onClick: onClose })] }));
 };
 
+const Tooltip = ({ content, children, position = "top", className, }) => {
+    const [visible, setVisible] = React.useState(false);
+    const getPositionClasses = () => {
+        switch (position) {
+            case "bottom":
+                return "top-full mt-2 left-1/2 -translate-x-1/2";
+            case "left":
+                return "right-full mr-2 top-1/2 -translate-y-1/2";
+            case "right":
+                return "left-full ml-2 top-1/2 -translate-y-1/2";
+            case "top":
+            default:
+                return "bottom-full mb-2 left-1/2 -translate-x-1/2";
+        }
+    };
+    return (jsxRuntime.jsxs("div", { className: "relative inline-block", onMouseEnter: () => setVisible(true), onMouseLeave: () => setVisible(false), onFocus: () => setVisible(true), onBlur: () => setVisible(false), children: [children, visible && (jsxRuntime.jsx("div", { className: clsx("absolute z-50 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow", "whitespace-nowrap", getPositionClasses(), className), children: content }))] }));
+};
+
 exports.Badge = Badge;
 exports.Button = Button;
 exports.Card = Card;
@@ -11452,4 +11470,5 @@ exports.TabsContent = TabsContent;
 exports.TabsList = TabsList;
 exports.TabsTrigger = TabsTrigger;
 exports.Toast = Toast;
+exports.Tooltip = Tooltip;
 //# sourceMappingURL=index.cjs.js.map

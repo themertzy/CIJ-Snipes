@@ -57,6 +57,7 @@ Below is a list of reusable components currently available in **CIJ-Snipes**.
 | `Spinner` | Feedback | Loading indicator with size and color options. |
 | `Tabs` | UI Elements | Tabbed navigation component to switch between content views. |
 | `Toast` | Feedback | Transient notification popup for alerts, confirmations, and messages. |
+| `Tooltip` | UI Elements | Tooltip that appears on hover or focus, customizable position. |
 
 
 

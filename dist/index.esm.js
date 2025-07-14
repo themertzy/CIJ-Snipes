@@ -11419,5 +11419,23 @@ const Modal = ({ isOpen, onClose, title, children, footer, className, }) => {
     return (jsxs("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50", children: [jsxs("div", { className: clsx("bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative", className), onClick: (e) => e.stopPropagation(), children: [title && jsx("h2", { className: "text-lg font-semibold mb-4", children: title }), jsx("div", { className: "mb-4", children: children }), footer && jsx("div", { className: "mt-4", children: footer }), jsx("button", { onClick: onClose, className: "absolute top-3 right-3 text-gray-500 hover:text-black text-lg", "aria-label": "Close modal", children: "\u00D7" })] }), jsx("div", { className: "absolute inset-0", onClick: onClose })] }));
 };
 
-export { Badge, Button, Card, Dropdown, EditableCell, Input, Modal, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast };
+const Tooltip = ({ content, children, position = "top", className, }) => {
+    const [visible, setVisible] = useState(false);
+    const getPositionClasses = () => {
+        switch (position) {
+            case "bottom":
+                return "top-full mt-2 left-1/2 -translate-x-1/2";
+            case "left":
+                return "right-full mr-2 top-1/2 -translate-y-1/2";
+            case "right":
+                return "left-full ml-2 top-1/2 -translate-y-1/2";
+            case "top":
+            default:
+                return "bottom-full mb-2 left-1/2 -translate-x-1/2";
+        }
+    };
+    return (jsxs("div", { className: "relative inline-block", onMouseEnter: () => setVisible(true), onMouseLeave: () => setVisible(false), onFocus: () => setVisible(true), onBlur: () => setVisible(false), children: [children, visible && (jsx("div", { className: clsx("absolute z-50 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow", "whitespace-nowrap", getPositionClasses(), className), children: content }))] }));
+};
+
+export { Badge, Button, Card, Dropdown, EditableCell, Input, Modal, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast, Tooltip };
 //# sourceMappingURL=index.esm.js.map
