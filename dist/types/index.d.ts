@@ -7,3 +7,4 @@ export * from './components/Badge';
 export * from './components/Spinner';
 export { Card } from "./components/Card";
 export { Dropdown } from "./components/Dropdown";
+export { Modal } from "./components/Modal";

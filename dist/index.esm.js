@@ -11403,5 +11403,21 @@ const Dropdown = ({ trigger, children, align = "left", className, }) => {
     return (jsxs("div", { className: "relative inline-block", ref: ref, children: [jsx("div", { onClick: () => setIsOpen((prev) => !prev), className: "cursor-pointer", children: trigger }), isOpen && (jsx("div", { className: clsx("absolute mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50", align === "right" ? "right-0" : "left-0", className), children: jsx("div", { className: "py-1", children: children }) }))] }));
 };
 
-export { Badge, Button, Card, Dropdown, EditableCell, Input, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast };
+const Modal = ({ isOpen, onClose, title, children, footer, className, }) => {
+    useEffect(() => {
+        const handleEsc = (e) => {
+            if (e.key === "Escape")
+                onClose();
+        };
+        if (isOpen) {
+            document.addEventListener("keydown", handleEsc);
+        }
+        return () => document.removeEventListener("keydown", handleEsc);
+    }, [isOpen, onClose]);
+    if (!isOpen)
+        return null;
+    return (jsxs("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50", children: [jsxs("div", { className: clsx("bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative", className), onClick: (e) => e.stopPropagation(), children: [title && jsx("h2", { className: "text-lg font-semibold mb-4", children: title }), jsx("div", { className: "mb-4", children: children }), footer && jsx("div", { className: "mt-4", children: footer }), jsx("button", { onClick: onClose, className: "absolute top-3 right-3 text-gray-500 hover:text-black text-lg", "aria-label": "Close modal", children: "\u00D7" })] }), jsx("div", { className: "absolute inset-0", onClick: onClose })] }));
+};
+
+export { Badge, Button, Card, Dropdown, EditableCell, Input, Modal, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast };
 //# sourceMappingURL=index.esm.js.map

@@ -11423,12 +11423,29 @@ const Dropdown = ({ trigger, children, align = "left", className, }) => {
     return (jsxRuntime.jsxs("div", { className: "relative inline-block", ref: ref, children: [jsxRuntime.jsx("div", { onClick: () => setIsOpen((prev) => !prev), className: "cursor-pointer", children: trigger }), isOpen && (jsxRuntime.jsx("div", { className: clsx("absolute mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50", align === "right" ? "right-0" : "left-0", className), children: jsxRuntime.jsx("div", { className: "py-1", children: children }) }))] }));
 };
 
+const Modal = ({ isOpen, onClose, title, children, footer, className, }) => {
+    React.useEffect(() => {
+        const handleEsc = (e) => {
+            if (e.key === "Escape")
+                onClose();
+        };
+        if (isOpen) {
+            document.addEventListener("keydown", handleEsc);
+        }
+        return () => document.removeEventListener("keydown", handleEsc);
+    }, [isOpen, onClose]);
+    if (!isOpen)
+        return null;
+    return (jsxRuntime.jsxs("div", { className: "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50", children: [jsxRuntime.jsxs("div", { className: clsx("bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative", className), onClick: (e) => e.stopPropagation(), children: [title && jsxRuntime.jsx("h2", { className: "text-lg font-semibold mb-4", children: title }), jsxRuntime.jsx("div", { className: "mb-4", children: children }), footer && jsxRuntime.jsx("div", { className: "mt-4", children: footer }), jsxRuntime.jsx("button", { onClick: onClose, className: "absolute top-3 right-3 text-gray-500 hover:text-black text-lg", "aria-label": "Close modal", children: "\u00D7" })] }), jsxRuntime.jsx("div", { className: "absolute inset-0", onClick: onClose })] }));
+};
+
 exports.Badge = Badge;
 exports.Button = Button;
 exports.Card = Card;
 exports.Dropdown = Dropdown;
 exports.EditableCell = EditableCell;
 exports.Input = Input;
+exports.Modal = Modal;
 exports.Spinner = Spinner;
 exports.Tabs = Tabs;
 exports.TabsContent = TabsContent;

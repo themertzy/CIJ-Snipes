@@ -1,0 +1,4 @@
+{
+  "category": "UI Overlay",
+  "description": "Dialog component with backdrop, ESC support, and custom content slots."
+}
