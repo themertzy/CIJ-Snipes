@@ -5,3 +5,4 @@ export * from './components/Input';
 export * from './components/Toast';
 export * from './components/Badge';
 export * from './components/Spinner';
+export { Card } from "./components/Card";
