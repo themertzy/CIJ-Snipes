@@ -44,13 +44,13 @@ Below is a list of reusable components currently available in **CIJ-Snipes**.
 
 | Component       | Category       | Description |
 |-----------------|----------------|-------------|
-| `Badge` | UI Elements | <!-- Badge description --> |
-| `Button` | UI Elements | <!-- Button description --> |
-| `EditableCell` | UI Elements | <!-- EditableCell description --> |
-| `Input` | UI Elements | <!-- Input description --> |
-| `Spinner` | UI Elements | <!-- Spinner description --> |
-| `Tabs` | UI Elements | <!-- Tabs description --> |
-| `Toast` | UI Elements | <!-- Toast description --> |
+| `Badge` | UI Elements | Tag-style label with status variants (e.g. success, warning, info). |
+| `Button` | UI Elements | Reusable button with support for variants, sizes, and states. |
+| `EditableCell` | Data Table | Inline-editable cell component, useful for editable tables or grids. |
+| `Input` | Form Elements | Basic text input with consistent styles for forms and settings. |
+| `Spinner` | Feedback | Loading indicator with size and color options. |
+| `Tabs` | UI Elements | Tabbed navigation component to switch between content views. |
+| `Toast` | Feedback | Transient notification popup for alerts, confirmations, and messages. |
 
 
 

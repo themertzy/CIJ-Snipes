@@ -4,7 +4,26 @@ const path = require("path");
 const COMPONENTS_DIR = path.join(__dirname, "../src/components");
 const README_PATH = path.join(__dirname, "../README.md");
 
-function getComponentNames() {
+function getComponentMetadata(name) {
+  const metaPath = path.join(COMPONENTS_DIR, name, "meta.json");
+  let meta = {
+    category: "UI Elements",
+    description: `Add description for ${name}`,
+  };
+
+  if (fs.existsSync(metaPath)) {
+    try {
+      const file = fs.readFileSync(metaPath, "utf-8");
+      meta = { ...meta, ...JSON.parse(file) };
+    } catch (err) {
+      console.warn(`⚠️ Failed to parse meta.json for ${name}`);
+    }
+  }
+
+  return meta;
+}
+
+function getComponentList() {
   return fs
     .readdirSync(COMPONENTS_DIR, { withFileTypes: true })
     .filter((dirent) => dirent.isDirectory())
@@ -13,16 +32,16 @@ function getComponentNames() {
 }
 
 function generateTable(components) {
-  return (
-    "| Component       | Category       | Description |\n" +
-    "|-----------------|----------------|-------------|\n" +
-    components
-      .map(
-        (name) =>
-          `| \`${name}\` | UI Elements | <!-- ${name} description --> |`
-      )
-      .join("\n")
-  );
+  const rows = components.map((name) => {
+    const { category, description } = getComponentMetadata(name);
+    return `| \`${name}\` | ${category} | ${description} |`;
+  });
+
+  return [
+    "| Component       | Category       | Description |",
+    "|-----------------|----------------|-------------|",
+    ...rows,
+  ].join("\n");
 }
 
 function updateReadme(content, tableMarkdown) {
@@ -46,13 +65,13 @@ function updateReadme(content, tableMarkdown) {
 }
 
 function main() {
-  const components = getComponentNames();
-  const newTable = generateTable(components);
+  const components = getComponentList();
+  const table = generateTable(components);
 
   const readme = fs.readFileSync(README_PATH, "utf-8");
-  const updatedReadme = updateReadme(readme, newTable);
+  const updated = updateReadme(readme, table);
 
-  fs.writeFileSync(README_PATH, updatedReadme);
+  fs.writeFileSync(README_PATH, updated);
   console.log("✅ Component registry updated in README.md");
 }
 
