@@ -53,6 +53,7 @@ Below is a list of reusable components currently available in **CIJ-Snipes**.
 | `Dropdown` | UI Elements | Toggleable dropdown menu with click-outside handling and alignment options. |
 | `EditableCell` | Data Table | Inline-editable cell component, useful for editable tables or grids. |
 | `Input` | Form Elements | Basic text input with consistent styles for forms and settings. |
+| `Modal` | UI Overlay | Dialog component with backdrop, ESC support, and custom content slots. |
 | `Spinner` | Feedback | Loading indicator with size and color options. |
 | `Tabs` | UI Elements | Tabbed navigation component to switch between content views. |
 | `Toast` | Feedback | Transient notification popup for alerts, confirmations, and messages. |
