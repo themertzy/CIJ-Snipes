@@ -11388,5 +11388,20 @@ const Card = ({ children, className, shadow = true, border = false, ...props }) 
     return (jsx("div", { className: clsx("rounded-2xl p-4 bg-white", shadow && "shadow-md", border && "border border-gray-200", className), ...props, children: children }));
 };
 
-export { Badge, Button, Card, EditableCell, Input, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast };
+const Dropdown = ({ trigger, children, align = "left", className, }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const ref = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+    return (jsxs("div", { className: "relative inline-block", ref: ref, children: [jsx("div", { onClick: () => setIsOpen((prev) => !prev), className: "cursor-pointer", children: trigger }), isOpen && (jsx("div", { className: clsx("absolute mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50", align === "right" ? "right-0" : "left-0", className), children: jsx("div", { className: "py-1", children: children }) }))] }));
+};
+
+export { Badge, Button, Card, Dropdown, EditableCell, Input, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast };
 //# sourceMappingURL=index.esm.js.map

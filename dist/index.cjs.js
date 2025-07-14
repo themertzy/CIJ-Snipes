@@ -11408,9 +11408,25 @@ const Card = ({ children, className, shadow = true, border = false, ...props }) 
     return (jsxRuntime.jsx("div", { className: clsx("rounded-2xl p-4 bg-white", shadow && "shadow-md", border && "border border-gray-200", className), ...props, children: children }));
 };
 
+const Dropdown = ({ trigger, children, align = "left", className, }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const ref = React.useRef(null);
+    React.useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+    return (jsxRuntime.jsxs("div", { className: "relative inline-block", ref: ref, children: [jsxRuntime.jsx("div", { onClick: () => setIsOpen((prev) => !prev), className: "cursor-pointer", children: trigger }), isOpen && (jsxRuntime.jsx("div", { className: clsx("absolute mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50", align === "right" ? "right-0" : "left-0", className), children: jsxRuntime.jsx("div", { className: "py-1", children: children }) }))] }));
+};
+
 exports.Badge = Badge;
 exports.Button = Button;
 exports.Card = Card;
+exports.Dropdown = Dropdown;
 exports.EditableCell = EditableCell;
 exports.Input = Input;
 exports.Spinner = Spinner;
