@@ -9,3 +9,4 @@ export { Card } from "./components/Card";
 export { Dropdown } from "./components/Dropdown";
 export { Modal } from "./components/Modal";
 export { Tooltip } from "./components/Tooltip";
+export { Divider } from './components/Divider';

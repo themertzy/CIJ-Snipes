@@ -11437,5 +11437,12 @@ const Tooltip = ({ content, children, position = "top", className, }) => {
     return (jsxs("div", { className: "relative inline-block", onMouseEnter: () => setVisible(true), onMouseLeave: () => setVisible(false), onFocus: () => setVisible(true), onBlur: () => setVisible(false), children: [children, visible && (jsx("div", { className: clsx("absolute z-50 px-2 py-1 text-xs text-white bg-gray-800 rounded shadow", "whitespace-nowrap", getPositionClasses(), className), children: content }))] }));
 };
 
-export { Badge, Button, Card, Dropdown, EditableCell, Input, Modal, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast, Tooltip };
+const Divider = ({ label, orientation = 'horizontal', className = '', }) => {
+    if (orientation === 'vertical') {
+        return (jsx("div", { className: clsx('w-px bg-gray-300 dark:bg-gray-700 h-full mx-2', className) }));
+    }
+    return (jsxs("div", { className: clsx('flex items-center w-full', className), children: [jsx("div", { className: "flex-grow h-px bg-gray-300 dark:bg-gray-700" }), label && (jsx("span", { className: "mx-3 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap", children: label })), jsx("div", { className: "flex-grow h-px bg-gray-300 dark:bg-gray-700" })] }));
+};
+
+export { Badge, Button, Card, Divider, Dropdown, EditableCell, Input, Modal, Spinner, Tabs, TabsContent, TabsList, TabsTrigger, Toast, Tooltip };
 //# sourceMappingURL=index.esm.js.map

@@ -50,6 +50,7 @@ Below is a list of reusable components currently available in **CIJ-Snipes**.
 | `Badge` | UI Elements | Tag-style label with status variants (e.g. success, warning, info). |
 | `Button` | UI Elements | Reusable button with support for variants, sizes, and states. |
 | `Card` | Layout | Container component with padding, shadow, and optional border for structured content blocks. |
+| `Divider` | Layout | Horizontal or vertical line used to visually separate content sections or elements. |
 | `Dropdown` | UI Elements | Toggleable dropdown menu with click-outside handling and alignment options. |
 | `EditableCell` | Data Table | Inline-editable cell component, useful for editable tables or grids. |
 | `Input` | Form Elements | Basic text input with consistent styles for forms and settings. |
